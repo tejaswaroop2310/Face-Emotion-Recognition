@@ -2,4 +2,4 @@ keras==2.7.0
 opencv-contrib-python-headless
 tensorflow-cpu
 streamlit==0.81.0
-streamlit-webrtc==0.34.2
+streamlit-webrtc
