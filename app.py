@@ -9,14 +9,13 @@ from streamlit_webrtc import webrtc_streamer, VideoTransformerBase, RTCConfigura
 # load model
 emotion_dict = {0:'angry', 1 :'happy', 2: 'neutral', 3:'sad', 4: 'surprise'}
 # load json and create model
-json_file = open("emotion_model1.json", 'r')
+json_file = open('emotion_model1.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 classifier = model_from_json(loaded_model_json)
 
 # load weights into new model
-classifier.load_weights('emotion_model1.'
-                        'h5')
+classifier.load_weights("emotion_model1.h5")
 
 #load face
 try:
@@ -57,7 +56,10 @@ def main():
     st.title("Real Time Face Emotion Detection Application")
     activiteis = ["Home", "Webcam Face Detection", "About"]
     choice = st.sidebar.selectbox("Select Activity", activiteis)
-
+    st.sidebar.markdown(
+        """ Developed by Mohammad Juned Khan    
+            Email : Mohammad.juned.z.khan@gmail.com  
+            [LinkedIn] (https://www.linkedin.com/in/md-juned-khan)""")
     if choice == "Home":
         html_temp_home1 = """<div style="background-color:#6D7B8D;padding:10px">
                                             <h4 style="color:white;text-align:center;">
@@ -88,9 +90,15 @@ def main():
                                     </br>"""
         st.markdown(html_temp_about1, unsafe_allow_html=True)
 
+        html_temp4 = """
+                             		<div style="background-color:#98AFC7;padding:10px">
+                             		<h4 style="color:white;text-align:center;">This Application is developed by Mohammad Juned Khan using Streamlit Framework, Opencv, Tensorflow and Keras library for demonstration purpose. If you're on LinkedIn and want to connect, just click on the link in sidebar and shoot me a request. If you have any suggestion or wnat to comment just write a mail at Mohammad.juned.z.khan@gmail.com. </h4>
+                             		<h4 style="color:white;text-align:center;">Thanks for Visiting</h4>
+                             		</div>
+                             		<br></br>
+                             		<br></br>"""
 
-
-       
+        st.markdown(html_temp4, unsafe_allow_html=True)
 
     else:
         pass
