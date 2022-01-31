@@ -15,13 +15,13 @@ def load_image(image_file):
 # load model
 emotion_dict = {0:'angry', 1 :'happy', 2: 'neutral', 3:'sad', 4: 'surprise'}
 # load json and create model
-json_file = open('modelfinal1.json', 'r')
+json_file = open('mainfinal1.json', 'r')
 loaded_model_json = json_file.read()
 json_file.close()
 classifier = model_from_json(loaded_model_json)
 
 # load weights into new model
-classifier.load_weights("modelfinal1.h5")
+classifier.load_weights("mainfinal1.h5")
 
 #load face
 try:
