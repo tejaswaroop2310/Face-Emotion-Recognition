@@ -25,7 +25,7 @@ classifier.load_weights("mainfinal1.h5")
 
 #load face
 try:
-    face_cascade = cv2.CascadeClassifier('C:/Users/AC/PycharmProjects/FaceEmotionRecognition/haarcascade_frontalface_default.xml')
+    face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 except Exception:
     st.write("Error loading cascade classifiers")
 
@@ -80,7 +80,17 @@ def main():
                  """)
     elif choice == "Webcam Face Detection":
         st.header("Webcam Live Feed")
-        st.write("Click on start to use webcam and detect your face emotion")
+
+        st.write(''' Click on the Start button to start.
+        
+                Make sure that camera shouldn't be used by any other app.
+                
+                Click on  Stop  to end.
+                
+                If  webcam window didnot open, Clear the cache in your browser and reload the page.
+
+                      ''')
+
         webrtc_streamer(key="example", mode=WebRtcMode.SENDRECV, rtc_configuration=RTC_CONFIGURATION,
                         video_processor_factory=Faceemotion)
 
